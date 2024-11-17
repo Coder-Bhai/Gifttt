@@ -1,0 +1,472 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Happy Birthday Bestie" name="description" />
+  <meta content="webthemez" name="author" />
+  <title>Happy Birthday!!!</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 16px;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 8px;
+    }
+
+    .masonry-item:hover .overlay {
+      opacity: 1;
+    }
+
+    @media (min-width: 640px) {
+      .masonry-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .masonry-grid {
+        column-count: 3;
+      }
+    }
+
+    body {
+      background-color: black;
+      /* Changed background color to black */
+    }
+
+    /* Style the scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      /* Adjust width of the scrollbar */
+      height: 8px;
+      /* Adjust height of horizontal scrollbar */
+    }
+
+    /* Style the thumb (draggable part) of the scrollbar */
+    ::-webkit-scrollbar-thumb {
+      background-color: gray;
+      /* Set the thumb color to gray */
+      border-radius: 8px;
+      /* Optional: rounded corners */
+    }
+
+    /* Style the track (background of the scrollbar) */
+    ::-webkit-scrollbar-track {
+      background-color: black;
+      /* Set track color to black */
+      border-radius: 8px;
+      /* Optional: rounded corners */
+    }
+
+    /* Modal overlay transition */
+    #details-modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #details-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Make the close button fixed at the top-right corner */
+    #details-modal button {
+      position: fixed;
+      /* Fix the button's position */
+      top: 20px;
+      /* Adjust the distance from the top */
+      right: 20px;
+      /* Adjust the distance from the right */
+      z-index: 60;
+      /* Ensure the button stays on top */
+      background: transparent;
+      border: none;
+      color: gray;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #details-modal button:hover {
+      color: white;
+      /* Change the color on hover for better visibility */
+    }
+
+
+    /* Back Button Style */
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #000000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .back-button:hover {
+      background: #21155b;
+    }
+  </style>
+</head>
+
+
+
+<body class="bg-black text-gray-200 font-roboto">
+  <!-- Gallery -->
+  <section class="py-20 bg-black" id="gallery"> <!-- Changed bg-pink-100 to bg-black -->
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-ye">
+        <button class="back-button" onclick="window.location.href='index.html'">Back</button> <!-- Added back button -->
+        🥰 O.O 🥰
+      </h2>
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <img alt="Image 1" class="w-full h-auto object-cover" src="Assets/Images/A1.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A1.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 2" class="w-full h-auto object-cover" src="Assets/Images/A2.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A2.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 3" class="w-full h-auto object-cover" src="Assets/Images/A3.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A3.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <img alt="Image 4" class="w-full h-auto object-cover" src="Assets/Images/A4.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A4.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+        <!-- <div class="masonry-item">
+          <img alt="Image 5" class="w-full h-auto object-cover" src="Assets/Images/A5.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A5.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div> -->
+        <div class="masonry-item">
+          <img alt="Image 6" class="w-full h-auto object-cover" src="Assets/Images/A6.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A6.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <img alt="Image 7" class="w-full h-auto object-cover" src="Assets/Images/A7.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A7.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 8" class="w-full h-auto object-cover" src="Assets/Images/A8.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A8.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 9" class="w-full h-auto object-cover" src="Assets/Images/A9.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A9.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+
+          <img alt="Image 10" class="w-full h-auto object-cover" src="Assets/Images/A10.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A10.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 11" class="w-full h-auto object-cover" src="Assets/Images/A11.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A11.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 12" class="w-full h-auto object-cover" src="Assets/Images/A12.gif" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A12.gif', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 13" class="w-full h-auto object-cover" src="Assets/Images/A13.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Image/A13.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 14" class="w-full h-auto object-cover" src="Assets/Images/A14.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A14.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 15" class="w-full h-auto object-cover" src="Assets/Images/A15.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets/Images/A15.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-black" id="gallery"> <!-- Changed bg-pink-100 to bg-black -->
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-ye">
+        <button class="back-button" onclick="window.location.href='index.html'">Back</button> <!-- Added back button -->
+        Kurti Gang! 🥰
+      </h2>
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <img alt="Image 1" class="w-full h-auto object-cover" src="Assets\Images\B1.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B1.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <img alt="Image 2" class="w-full h-auto object-cover" src="Assets\Images\B2.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B2.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 3" class="w-full h-auto object-cover" src="Assets\Images\B3.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B3.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 4" class="w-full h-auto object-cover" src="Assets\Images\B4.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B4.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 5" class="w-full h-auto object-cover" src="Assets\Images\B5.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B5.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 6" class="w-full h-auto object-cover" src="Assets\Images\B6.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\B6.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-black" id="gallery"> <!-- Changed bg-pink-100 to bg-black -->
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-ye">
+        <button class="back-button" onclick="window.location.href='index.html'">Back</button> <!-- Added back button -->
+        ha ha he he 😂 😘
+      </h2>
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <img alt="Image 1" class="w-full h-auto object-cover" src="Assets\Images\C1.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\C1.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 2" class="w-full h-auto object-cover" src="Assets\Images\C2.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\C2.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+        <div class="masonry-item">
+          <img alt="Image 3" class="w-full h-auto object-cover" src="Assets\Images\C3.jpg" />
+          <div class="overlay">
+            <button class="text-white text-lg" onclick="showDetails('Assets\Images\C3.jpg', '🥰')">
+              More Details
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Details Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden" id="details-modal"
+    onclick="closeDetailsOutside(event)">
+    <div class="bg-black p-8 rounded-lg max-w-lg w-full relative overflow-y-auto" style="max-height: 90vh;"
+      id="modal-content">
+      <!-- Close button stays fixed at the top-right -->
+      <button onclick="closeDetails()">
+        <i class="fas fa-times"></i>
+      </button>
+      <!-- Modal image and description -->
+      <img alt="Detailed view" class="w-full h-auto object-cover mb-4" id="modal-image" />
+      <p class="text-lg" id="modal-description"></p>
+    </div>
+  </div>
+
+
+
+  <script>
+    // Show modal with image and description
+    function showDetails(imageSrc, description) {
+      const modal = document.getElementById('details-modal');
+      const modalImage = document.getElementById('modal-image');
+      const modalDescription = document.getElementById('modal-description');
+
+      modalImage.src = imageSrc;
+      modalDescription.innerText = description;
+      modal.classList.remove('hidden');
+
+      // Add a small delay to trigger the CSS transition
+      setTimeout(() => {
+        modal.classList.add('show');
+      }, 10);
+    }
+
+    // Close the modal
+    function closeDetails() {
+      const modal = document.getElementById('details-modal');
+
+      modal.classList.remove('show');
+      // Wait for the transition to complete before hiding the modal
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 500); // Matches the CSS transition duration
+    }
+
+    // Close the modal when clicking outside the content area
+    function closeDetailsOutside(event) {
+      const modalContent = document.getElementById('modal-content');
+
+      if (event.target === modalContent || modalContent.contains(event.target)) {
+        // Don't close if the click is inside the modal content
+        return;
+      }
+      closeDetails();
+    }
+
+    // Attach click event listener to modal
+    document.getElementById('details-modal').addEventListener('click', closeDetailsOutside);
+
+    // Close the modal when pressing the Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeDetails();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

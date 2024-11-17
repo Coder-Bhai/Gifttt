@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Happy Birthday Bestie" name="description" />
+  <meta content="webthemez" name="author" />
+  <title>Happy Birthday!</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* Keyframes for the balloon floating animation */
+    @keyframes fly {
+      0% {
+        transform: translateY(100vh) translateX(var(--random-x));
+      }
+
+      100% {
+        transform: translateY(-100vh) translateX(var(--random-x));
+      }
+    }
+
+    /* Balloon styling */
+    .balloon {
+      animation: fly 8s linear infinite;
+      animation-fill-mode: backwards;
+      position: absolute;
+      bottom: 0;
+      width: 60px;
+      height: 80px;
+      background-color: var(--color);
+      /* Balloon color */
+      border-radius: 50% 50% 45% 45%;
+      /* Balloon shape */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: -20;
+      opacity: 0.9;
+      --random-x: calc(-50vw + 100vw * random());
+      /* Random starting position */
+      transform: translateY(100vh);
+      /* Off-screen start */
+    }
+
+    /* String styling for the balloon */
+    .string {
+      width: 2px;
+      height: 40px;
+      background-color: #666;
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+
+<body class="bg-pink-100 text-gray-800 font-roboto">
+  <!-- Birthday Message and Balloons -->
+  <div class="fixed inset-0 flex justify-center items-center z-50 bg-black fade-out" id="birthday-message">
+    <div class="relative text-center">
+      <h1 class="text-5xl font-bold text-white mb-10">Happy Birthday Bestie!</h1>
+      <!-- Balloons with different positions and colors -->
+      <div class="balloon" style="--color: #ff4d6d; animation-delay: 0s; --random-x: -20vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #4da8ff; animation-delay: 1s; --random-x: 10vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #ffd54d; animation-delay: 2s; --random-x: 0vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #aaff4d; animation-delay: 3s; --random-x: -30vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #ff4dff; animation-delay: 4s; --random-x: 25vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #4d53ff; animation-delay: 0.5s; --random-x: 35vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #534dff; animation-delay: 5s; --random-x: 40vw;">
+        <div class="string"></div>
+      </div>
+      <div class="balloon" style="--color: #ffb84d; animation-delay: 3s; --random-x: 50vw;">
+        <div class="string"></div>
+      </div>
+
+      <!-- Fancy "Reveal Gift" Button -->
+
+      <button onclick="revealGift()" id="revealButton"
+        class="mt-10 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform">
+        🎁 Reveal Gift
+      </button>
+
+      <!-- Hidden Gift Message -->
+
+
+      <div id="gift-message" class="mt-5 text-2xl text-yellow-300 font-bold hidden">
+        🎉<br> Are You Ready?
+      </div>
+      <button id="gift-message-button"
+        class="mt-5 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="revealGift2()">Yes 😁</button>
+
+
+
+
+      <div id="gift-message-2" class="mt-5 text-2xl text-yellow-300 font-bold hidden">
+        Are You Sure??
+      </div>
+      <button id="gift-message-button-2"
+        class="mt-5 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="revealGift3()">Yessss 😎</button>
+
+
+
+      <div id="gift-message-3" class="mt-5 text-3xl text-yellow-300 font-bold hidden">
+        Pakku? </div>
+      <button id="gift-message-button-3"
+        class="mt-5 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="window.location.href='Gallery.html'">Haaaaa 😏</button>
+
+      <!-- <div id="gift-message-3" class="mt-5 text-3xl text-yellow-300 font-bold hidden">
+        Pakku? </div>
+      <button id="gift-message-button-3"
+        class="mt-5 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="revealGift4()">Haaaaa 😏</button>
+
+      <div id="gift-message-4" class="mt-5 text-3xl text-yellow-300 font-bold hidden">
+        Here is Your Gift...! </div>
+      <button id="gift-message-button-4"
+        class="mt-5 px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="revealGift5()">🎁 Reveal Gift</button>
+
+      <div id="gift-message-5" class="mt-5 text-3xl text-yellow-300 font-bold hidden">
+        Aapke Saath Prank Huaa Hai! 😂😂😂</div>
+      <button id="gift-message-button-5"
+        class="mt-5 px-8 py-3 text-5xl text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-transform hidden"
+        onclick="window.location.href='Gallery.html'">😹</button> -->
+
+
+
+
+    </div>
+  </div>
+
+  <script>
+    // Function to reveal the gift message
+    function revealGift() {
+      document.getElementById('gift-message').classList.remove('hidden');
+      document.getElementById('gift-message-button').classList.remove('hidden');
+      document.getElementById('revealButton').classList.add('hidden');
+
+    }
+
+    function revealGift2() {
+      document.getElementById('gift-message-2').classList.remove('hidden');
+      document.getElementById('gift-message-button-2').classList.remove('hidden');
+      document.getElementById('gift-message').classList.add('hidden');
+      document.getElementById('gift-message-button').classList.add('hidden');
+    }
+
+    function revealGift3() {
+      document.getElementById('gift-message-3').classList.remove('hidden');
+      document.getElementById('gift-message-button-3').classList.remove('hidden');
+      document.getElementById('gift-message-2').classList.add('hidden');
+      document.getElementById('gift-message-button-2').classList.add('hidden');
+    }
+
+    function revealGift4() {
+      document.getElementById('gift-message-4').classList.remove('hidden');
+      document.getElementById('gift-message-button-4').classList.remove('hidden');
+      document.getElementById('gift-message-3').classList.add('hidden');
+      document.getElementById('gift-message-button-3').classList.add('hidden');
+    }
+
+    function revealGift5() {
+      document.getElementById('gift-message-5').classList.remove('hidden');
+      document.getElementById('gift-message-button-5').classList.remove('hidden');
+      document.getElementById('gift-message-4').classList.add('hidden');
+      document.getElementById('gift-message-button-4').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>
